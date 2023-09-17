@@ -1,0 +1,35 @@
+[package]
+name = "procesamiento_imagenes_app"
+version = "0.0.0"
+description = "A Tauri App"
+authors = ["Gus"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.4", features = [] }
+
+[dependencies]
+tauri = { version = "1.4", features = ["shell-open"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+photon-rs = { version = "0.3.2", default_features = true, features = [
+  "console_error_panic_hook",
+  "wee_alloc",
+] }
+image = "0.24.7"
+time = "0.3.28"
+base64 = "0.21.4"
+imageproc = "0.23.0"
+rand = "0.8.5"
+# graph-based-image-segmentation = "0.2.1"
+# kmeans = "0.2.0"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
