@@ -5,19 +5,28 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@catppuccin/palette':
+    specifier: github:catppuccin/palette
+    version: github.com/catppuccin/palette/205dd54c6158b7648621cf9fd00e91f03888ce7e
+  '@fortawesome/fontawesome-free':
+    specifier: ^6.4.2
+    version: 6.4.2
   '@tauri-apps/api':
     specifier: ^1.4.0
     version: 1.4.0
+  font-awesome:
+    specifier: ^4.7.0
+    version: 4.7.0
 
 devDependencies:
   '@tauri-apps/cli':
     specifier: ^1.4.0
     version: 1.4.0
   typescript:
-    specifier: ^5.0.2
+    specifier: ^5.2.2
     version: 5.2.2
   vite:
-    specifier: ^4.4.4
+    specifier: ^4.4.9
     version: 4.4.9
 
 packages:
@@ -220,6 +229,12 @@ packages:
     dev: true
     optional: true
 
+  /@fortawesome/fontawesome-free@6.4.2:
+    resolution: {integrity: sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: false
+
   /@tauri-apps/api@1.4.0:
     resolution: {integrity: sha512-Jd6HPoTM1PZSFIzq7FB8VmMu3qSSyo/3lSwLpoapW+lQ41CL5Dow2KryLg+gyazA/58DRWI9vu/XpEeHK4uMdw==}
     engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
@@ -362,6 +377,11 @@ packages:
       '@esbuild/win32-x64': 0.18.20
     dev: true
 
+  /font-awesome@4.7.0:
+    resolution: {integrity: sha512-U6kGnykA/6bFmg1M/oT9EkFeIYv7JlX3bozwQJWiiLz6L0w3F5vBVPxHlwyX/vtNq1ckcpRKOB9f2Qal/VtFpg==}
+    engines: {node: '>=0.10.3'}
+    dev: false
+
   /fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -442,3 +462,9 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  github.com/catppuccin/palette/205dd54c6158b7648621cf9fd00e91f03888ce7e:
+    resolution: {tarball: https://codeload.github.com/catppuccin/palette/tar.gz/205dd54c6158b7648621cf9fd00e91f03888ce7e}
+    name: '@catppuccin/palette'
+    version: 0.2.0
+    dev: false

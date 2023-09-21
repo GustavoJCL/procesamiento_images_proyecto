@@ -1,54 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
-    <style>
-      .logo.vite:hover {
-        filter: drop-shadow(0 0 2em #747bff);
-      }
 
-      .logo.typescript:hover {
-        filter: drop-shadow(0 0 2em #2d79c7);
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procesamiento de imagenes</title>
+  <script type="module" src="/src/main.ts" defer></script>
+  <script defer src="./node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+  <link rel="font" type="" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
 
-  <body>
-    <div class="container">
-      <h1>Welcome to Tauri!</h1>
+  <style>
+    .logo.vite:hover {
+      filter: drop-shadow(0 0 2em #747bff);
+    }
 
-      <div class="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/src/assets/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img
-            src="/src/assets/tauri.svg"
-            class="logo tauri"
-            alt="Tauri logo"
-          />
-        </a>
-        <a href="https://www.typescriptlang.org/docs" target="_blank">
-          <img
-            src="/src/assets/typescript.svg"
-            class="logo typescript"
-            alt="typescript logo"
-          />
-        </a>
+    .logo.typescript:hover {
+      filter: drop-shadow(0 0 2em #2d79c7);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Curso: Procesamiento de imagenes</h1>
+    <h2>Grupo 07</h2>
+
+    <div class="row-drop">
+      <label for="input-file" id="drop-area">
+        <input type="file" id="input-file" accept="image/*" hidden />
+        <div id="img-view">
+          <i id="img-icon" class="fa-solid fa-upload"></i>&nbsp;
+          Elige o arrastra una imagen
+          <span>Carga cualquier imagen</span>
+        </div>
+      </label>
+      <button type="button" id="capture-btn">
+        <i class="fa-solid fa-camera"></i>
+        Tomar una captura
+      </button>
+    </div>
+    <div class="img-options">
+      <button type="button" id="image-enhance">Mejoramiento de imagen</button>
+      <button type="button" id="image-restoration">Restauracion de imagen</button>
+      {/* <button type="button" id="morphological-erosion">Erosion morfologica</button> */}
+      {/* <button type="button" id="morphological-dilation">Dilatacion morfologica</button> */}
+      <button type="button" id="denoising-gausian">Eliminacion de ruido gaussiano</button>
+      {/* <button type="button" id="denoising-nlm">Eliminacion de ruido NLM</button> */}
+      <button type="button" id="segmentation">Segmentacion de imagen</button>
+    </div>
+
+    <div id="div-options">
+      <div id="image-enhance-option" style="display: none;">
+        <input type="number" name="amt" id="amt" placeholder="ingrese el amt">
+      </div>
+      <div id="image-restoration-option" style="display: none;">
+        <input type="number" name="brightness" id="brightness" placeholder="ingrese el brightness">
+        <input type="number" name="contrast" id="contrast" placeholder="ingrese el contrast">
+      </div>
+      <div id="morphological-erosion-option" style="display: none;">
+        <input type="number" name="k-erosion" id="k-erosion" placeholder="ingrese el k">
+      </div>
+      <div id="morphological-dilation-option" style="display: none;">
+        <input type="number" name="k-dilation" id="k-dilation" placeholder="ingrese el k">
+      </div>
+      <div id="denoising-gausian-option" style="display: none;">
+        <input type="number" name="radius" id="radius" placeholder="ingrese el radius">
+      </div>
+      <div id="denoising-nlm-option" style="display: none;">
+        <input type="number" name="window-size" id="window-size" placeholder="ingrese el window size">
+        <input type="number" name="h" id="h" placeholder="ingrese el h">
+      </div>
+      <div id="segmentation-option" style="display: none;">
+        <input type="number" name="k-segmentation" id="k-segmentation" placeholder="ingrese el k">
       </div>
 
-      <p>Click on the Tauri logo to learn more about the framework</p>
-
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-
-      <p id="greet-msg"></p>
     </div>
-  </body>
+
+    <button type="button" name="process-image" id="process-image">Procesar Imagen</button>
+
+    <div class="img-display-div" id="img-display-div">
+      <img src="" id="img-display" alt="" height="200" width="200" decoding="async">
+    </div>
+
+    <p>Click on the Tauri logo to learn more about the framework</p>
+
+    <form class="row" id="greet-form">
+      <input id="greet-input" placeholder="Enter a name..." />
+      <button type="submit">Greet</button>
+    </form>
+
+    <p id="greet-msg"></p>
+  </div>
+</body>
+
 </html>
